@@ -1,8 +1,10 @@
 class QuestsController < ApplicationController
   def show
     @quest = Quest.find(params[:id])
-    @chat = @quest.chats.where(user: current_user)
-    @card = @chat.cards.last # ??
+    @chat = Chat.new
+    @card = Card.new
+    # @chat = @quest.chats.where(user: current_user)
+    # @card = @chat.cards.last # ??
   end
 
   def index
@@ -11,12 +13,11 @@ class QuestsController < ApplicationController
 
   def create
     @quest = Quest.new
-    # @chat = Chat.new
-    # @card = Card.new
+    @quest.user = current_user
     if @quest.save
-      redirect_to "/quests/:id"
+      redirect_to @quest
     else
-      render "quests", status: :unprocessable_entity
+      render "/quests", status: :unprocessable_entity
     end
   end
 end
