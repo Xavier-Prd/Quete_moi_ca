@@ -1,0 +1,9 @@
+<div class="container py-5">
+  <h1>Quests index</h1>
+
+  <%= form_for :quest, url: "/quest/:id", method: "post" do |f| %>
+    <%= f.submit "New quest" %>
+  <% end %>
+
+  <h2>Existing quests listing</h2>
+</div>
