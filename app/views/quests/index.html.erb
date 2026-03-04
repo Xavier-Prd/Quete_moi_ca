@@ -1,10 +1,6 @@
+<%# Rendu de banner (_navbar.html.erb) %>
+<%= render "layouts/banner" %>
+
 <div class="container py-5">
-  <h1>Quests index</h1>
-
-  <%= form_for :quest, url: "/quests", method: "post" do |f| %>
-    <%= f.submit "New quest", class: "btn btn-primary" %>
-  <% end %>
-
   <h2>Existing quests listing</h2>
-  <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
 </div>
