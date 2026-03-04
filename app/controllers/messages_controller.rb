@@ -21,8 +21,8 @@ class MessagesController < ApplicationController
         - "content" : la demande transformée en quête fantasy urbaine centrée sur un habitant.
         - "category" : le type de quête, qui doit être uniquement l’un des suivants :
             - "Mage" → réflexion, apprentissage, stratégie, organisation.
-            - "Warrior" → action, effort physique, discipline, confrontation.
-            - "Rogue" → ruse, optimisation, créativité, débrouillardise.
+            - "Guerrier" → action, effort physique, discipline, confrontation.
+            - "Assassin" → ruse, optimisation, créativité, débrouillardise.
 
     Ne renvoie aucun texte en dehors du JSON.
     Ne rajoute aucune explication.
@@ -35,7 +35,8 @@ class MessagesController < ApplicationController
       response_json = RubyLLM.chat.with_instructions(SYSTEM_PROMPT).ask(@message.content).content
       response = JSON.parse(response_json)
       Message.create!(content: response["title"], role: "assistant", chat: @quest.chat)
-      @card = Card.create!(title: response["title"], content: response["content"], category: response["category"], chat: @quest.chat, quest: @quest)
+      @card = Card.create!(title: response["title"], content: response["content"], category: response["category"],
+                           chat: @quest.chat, quest: @quest)
       redirect_to @quest
     else
       render "quests/show", status: :unprocessable_entity
