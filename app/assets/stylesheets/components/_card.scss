@@ -1,0 +1,130 @@
+
+.quest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1300px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+.quest-card {
+  background: #f3e2c7;
+  border: 4px solid #d2b48c;
+  border-radius: 25px;
+  padding: 35px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.25),
+    inset 0 0 15px rgba(0,0,0,0.05);
+  font-family: 'Cormorant Garamond', serif;
+  transition: transform 0.25s ease;
+  overflow: hidden;
+}
+
+.quest-card:hover {
+  transform: translateY(-6px);
+}
+
+/* HEADER */
+
+.quest-top {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* un peu plus d’air */
+  font-size: 18px;
+  color: #6b3f2b;
+}
+
+.quest-class-icon {
+  width: 80px;
+  height: auto;
+}
+
+/* TITRE */
+
+.quest-title {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  margin: 20px 0 10px 0;
+  line-height: 1.2;
+  color: #5a2d2d;
+}
+
+/* DESCRIPTION */
+
+.quest-description {
+  font-size: 16px;
+  line-height: 1.6;
+  font-style: italic;
+  color: #5a3d2b;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* LOCATION */
+
+.quest-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-style: italic;
+  font-size: 16px;
+  color: #6b3f2b;
+}
+
+.location-icon {
+  width: 46px;
+  height: auto;
+}
+
+/* DIVIDER */
+
+.quest-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c59b5c, transparent);
+  margin: 20px 0;
+}
+
+/* REWARD */
+
+.quest-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.quest-reward {
+  padding: 10px 22px;
+  border-radius: 25px;
+  background: rgba(197,155,92,0.15);
+  border: 1px solid rgba(197,155,92,0.4);
+  font-weight: 600;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coin-icon {
+  width: 44px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+  .quest-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .quest-grid {
+    grid-template-columns: 1fr;
+  }
+}
