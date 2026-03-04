@@ -2,7 +2,13 @@
 <%# Container principal %>
 <div class="container-fluid h-100">
   <div class="row h-100">
-    <div class="col chat_show h-100"><h2>Chat show</h2></div>
+    <div class="col chat_show h-100"><h2>Chat show</h2>
+    <%= simple_form_for [@quest, @message] do |f| %>
+      <%= f.input :content, placeholder: "Quel est ta requête ?", label: false %>
+      <%= f.button :submit, "Envoyer", class: "btn btn-primary" %>
+    <% end %>
+
+    </div>
     <div class="col card_show h-100"><h2>Quests show</h2></div>
   </div>
 
