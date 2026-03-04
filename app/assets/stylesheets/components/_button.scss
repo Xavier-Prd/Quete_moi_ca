@@ -1,0 +1,83 @@
+/* Base button */
+.ui-btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  height: 78px;
+  padding: 0 34px 0 18px;
+  border-radius: 999px;
+
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: .5px;
+
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  box-shadow: 0 10px 22px rgba(0,0,0,.18);
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+/* Inner outline */
+.ui-btn::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+/* Key circle */
+.key {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* PRIMARY */
+.ui-btn.primary {
+  background: #6b2d3d;
+  color: #fff3df;
+}
+
+.ui-btn.primary::before {
+  border: 2px solid #d7b89c;
+}
+
+.ui-btn.primary .key {
+  background: #fff3df;
+  color: #6b2d3d;
+}
+
+/* SECONDARY */
+.ui-btn.secondary {
+  background: #f3dcc6;
+  color: #6b2d3d;
+}
+
+.ui-btn.secondary::before {
+  border: 2px solid #9b6b54;
+}
+
+.ui-btn.secondary .key {
+  background: #6b2d3d;
+  color: #fff3df;
+}
+
+/* Interaction */
+.ui-btn:hover {
+  transform: translateY(-2px);
+}
+
+.ui-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,.22);
+}
