@@ -3,5 +3,11 @@
 
 <div class="container py-5">
   <h2>Existing quests listing</h2>
-  <%= render "/cards/card" %>
+  <% @cards = Card.all %>
+  <div class="row">
+    <% @cards.each do |card| %>
+      <div class="col"><%= render "cards/card", card: card %></div>
+    <% end %>
+  </div>
+
 </div>
