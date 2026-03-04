@@ -2,9 +2,14 @@
 <%# Container principal %>
 <div class="container-fluid h-100">
   <div class="row h-100">
-    <div class="col chat_show h-100"><h2>Chat show</h2></div>
-    <div class="col card_show h-100"><h2>Quests show</h2></div>
+
+    <!-- COLONNE CHAT -->
+    <div class="col-md-6 chat_show h-100"><h2>Chat show</h2></div>
+
+    <!-- COLONNE CARD -->
+    <div class="col-md-6 card_show h-100 d-flex align-items-center justify-content-center">
+      <%= render "/cards/card" %>
+    </div>
+
   </div>
-
-
 </div>
