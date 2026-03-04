@@ -1,7 +1,7 @@
 <div class="quest-card">
 
   <div class="quest-top">
-    <%= image_tag "icone_quete_mage.png", class: "quest-class-icon" %>
+    <%= image_tag "icone_quete_#{card.category.downcase}.png", class: "quest-class-icon" %>
     <span class="quest-class"><%= card.category %></span>
   </div>
 
