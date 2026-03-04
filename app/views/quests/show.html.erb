@@ -9,7 +9,7 @@
     <!-- COLONNE CARD -->
     <div class="col-md-6 card_show h-100 d-flex align-items-center justify-content-center">
       <% if @card.nil? %>
-        <h1>Carte en cours de création</h1>
+          <%= image_tag "creation_encours.png", style: "max-width: 80%; max-height: 80%; height: auto; width: auto;" %>
       <% else  %>
         <%= render "/cards/card" %>
       <% end %>
