@@ -7,7 +7,9 @@
   <% @cards = Card.all %>
   <div class="row">
     <% @cards.each do |card| %>
-      <div class="col"><%= render "cards/card", card: card %></div>
+      <div class="col-4 mb-3">
+        <%= render "cards/card", card: card %>
+      </div>
     <% end %>
   </div>
 

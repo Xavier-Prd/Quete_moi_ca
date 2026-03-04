@@ -8,6 +8,7 @@ class QuestsController < ApplicationController
 
   def index
     @quests = Quest.all
+    @cards = Card.all
   end
 
   def create
