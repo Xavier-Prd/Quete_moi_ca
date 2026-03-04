@@ -4,7 +4,12 @@
   <div class="row h-100">
 
     <!-- COLONNE CHAT -->
-    <div class="col-md-6 chat_show h-100"><h2>Chat show</h2></div>
+    <div class="col-md-6 chat_show h-100"><h2>Chat show</h2>
+      <%= simple_form_for [@quest, @message] do |f| %>
+        <%= f.input :content, placeholder: "Quel est ta requête ?", label: false %>
+        <%= f.button :submit, "Envoyer", class: "btn btn-primary" %>
+      <% end %>
+    </div>
 
     <!-- COLONNE CARD -->
     <div class="col-md-6 card_show h-100 d-flex align-items-center justify-content-center">

@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_chat, :set_quest
+  before_action :set_quest
 
   SYSTEM_PROMPT = <<~PROMPT
     Tu es un donneur de quête dans un univers fantasy appliqué à une ville moderne réelle.
@@ -17,12 +17,12 @@ class MessagesController < ApplicationController
     - Les actions doivent rester **réalistes ou réalisables** dans le cadre d’une ville moderne, même si la fantaisie est présente.
     - Tu dois répondre uniquement en JSON valide.
     - Le JSON doit contenir exactement trois clés :
-        - "titre" : le titre de la quête.
+        - "title" : le titre de la quête.
         - "content" : la demande transformée en quête fantasy urbaine centrée sur un habitant.
         - "category" : le type de quête, qui doit être uniquement l’un des suivants :
-            - "mage" → réflexion, apprentissage, stratégie, organisation.
-            - "warrior" → action, effort physique, discipline, confrontation.
-            - "rogue" → ruse, optimisation, créativité, débrouillardise.
+            - "Mage" → réflexion, apprentissage, stratégie, organisation.
+            - "Warrior" → action, effort physique, discipline, confrontation.
+            - "Rogue" → ruse, optimisation, créativité, débrouillardise.
 
     Ne renvoie aucun texte en dehors du JSON.
     Ne rajoute aucune explication.
@@ -30,12 +30,12 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.role = "user"
-    @message.chat = @chat
+    @message.chat = @quest.chat
     if @message.save
-      response_json = RubyLLM.chat.with_instructions(SYSTEM_PROMPT).ask(@message.content)
-      Message.create!(content: response_json, role: "assistant", chat: @chat)
+      response_json = RubyLLM.chat.with_instructions(SYSTEM_PROMPT).ask(@message.content).content
       response = JSON.parse(response_json)
-      @card = Card.create!(title: response[title], content: response[content], category: response[category])
+      Message.create!(content: response["title"], role: "assistant", chat: @quest.chat)
+      @card = Card.create!(title: response["title"], content: response["content"], category: response["category"], chat: @quest.chat, quest: @quest)
       redirect_to @quest
     else
       render "quests/show", status: :unprocessable_entity
@@ -46,10 +46,6 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:content)
-  end
-
-  def set_chat
-    @chat = Chat.find(params[:chat_id])
   end
 
   def set_quest
