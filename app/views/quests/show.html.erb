@@ -4,7 +4,7 @@
   <div class="row h-100">
 
     <!-- COLONNE CHAT -->
-    <div class="col-md-6 chat_show h-100 d-flex flex-column">
+    <div class="col-md-6 chat_show h-100 d-flex flex-column p-3">
       <div class="flex-grow-1">
         <% @quest.chat.messages.each do |message| %>
           <% if message.role == "user" %>
