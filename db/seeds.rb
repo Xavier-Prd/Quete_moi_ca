@@ -1,5 +1,8 @@
 Card.destroy_all
+
 puts "All Cards destroyed!"
+
+Quest.create!(user: User.last)
 
 puts "Start generate cards..."
 Card.create(
@@ -7,8 +10,8 @@ Card.create(
   content: "Les mystères de l’informatique me dépassent. Je cherche un guide capable de m’expliquer simplement comment tout cela fonctionne.",
   category: "Mage",
   status: "false",
-  quest_id: "1",
-  chat_id: "1"
+  quest: Quest.last,
+  chat: Quest.chat,
 )
 
 Card.create(
@@ -16,8 +19,8 @@ Card.create(
   content: "Les mystères de l’informatique me dépassent. Je cherche un guide capable de m’expliquer simplement comment tout cela fonctionne.",
   category: "Guerrier",
   status: "false",
-  quest_id: "1",
-  chat_id: "1"
+  quest: Quest.last,
+  chat: Quest.chat,
 )
 
 Card.create(
@@ -25,8 +28,8 @@ Card.create(
   content: "Mon véhicule refuse d’avancer. Je dois trouver quelqu’un qui s’y connaît en mécanique pour m’aider à réparer la panne.",
   category: "Assassin",
   status: "false",
-  quest_id: "1",
-  chat_id: "1"
+  quest: Quest.last,
+  chat: Quest.chat,
 )
 
 puts "Finished! #{Card.count} generated"
