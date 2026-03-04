@@ -1,8 +1,8 @@
 class QuestsController < ApplicationController
   def show
     @quest = Quest.find(params[:id])
-    @chat = Chat.new
-    @card = Card.new
+    @chat = @quest.chat
+    @message = Message.new
     # @chat = @quest.chats.where(user: current_user)
     # @card = @chat.cards.last # ??
   end
@@ -14,6 +14,7 @@ class QuestsController < ApplicationController
   def create
     @quest = Quest.new
     @quest.user = current_user
+    Chat.create!(quest: @quest)
     if @quest.save
       redirect_to @quest
     else
