@@ -2,7 +2,8 @@ Card.destroy_all
 
 puts "All Cards destroyed!"
 
-Quest.create!(user: User.last)
+@quest = Quest.create!(user: User.last)
+Chat.create!(quest: @quest)
 
 puts "Start generate cards..."
 Card.create(
@@ -11,16 +12,16 @@ Card.create(
   category: "Mage",
   status: "false",
   quest: Quest.last,
-  chat: Quest.chat,
+  chat: @quest.chat,
 )
 
 Card.create(
   title: "L’Outil Oublié du Samedi",
-  content: "Les mystères de l’informatique me dépassent. Je cherche un guide capable de m’expliquer simplement comment tout cela fonctionne.",
+  content: "Le jour du labeur approche et il me manque un râteau. Il faut en trouver un avant samedi, par l’échange ou l’emprunt.",
   category: "Guerrier",
   status: "false",
   quest: Quest.last,
-  chat: Quest.chat,
+  chat: @quest.chat,
 )
 
 Card.create(
@@ -29,7 +30,7 @@ Card.create(
   category: "Assassin",
   status: "false",
   quest: Quest.last,
-  chat: Quest.chat,
+  chat: @quest.chat,
 )
 
 puts "Finished! #{Card.count} generated"
