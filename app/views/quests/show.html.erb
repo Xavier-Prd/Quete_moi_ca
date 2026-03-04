@@ -8,7 +8,11 @@
 
     <!-- COLONNE CARD -->
     <div class="col-md-6 card_show h-100 d-flex align-items-center justify-content-center">
-      <%= render "/cards/card" %>
+      <% if @card.nil? %>
+        <h1>Carte en cours de création</h1>
+      <% else  %>
+        <%= render "/cards/card" %>
+      <% end %>
     </div>
 
   </div>
