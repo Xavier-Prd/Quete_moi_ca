@@ -2,15 +2,23 @@
 <%# Container principal %>
 <div class="container-fluid h-100">
   <div class="row h-100">
-    <div class="col chat_show h-100"><h2>Chat show</h2>
-    <%= simple_form_for [@quest, @message] do |f| %>
-      <%= f.input :content, placeholder: "Quel est ta requête ?", label: false %>
-      <%= f.button :submit, "Envoyer", class: "btn btn-primary" %>
-    <% end %>
 
+    <!-- COLONNE CHAT -->
+    <div class="col-md-6 chat_show h-100"><h2>Chat show</h2>
+      <%= simple_form_for [@quest, @message] do |f| %>
+        <%= f.input :content, placeholder: "Quel est ta requête ?", label: false %>
+        <%= f.button :submit, "Envoyer", class: "btn btn-primary" %>
+      <% end %>
     </div>
-    <div class="col card_show h-100"><h2>Quests show</h2></div>
+
+    <!-- COLONNE CARD -->
+    <div class="col-md-6 card_show h-100 d-flex align-items-center justify-content-center">
+      <% if @card.nil? %>
+        <h1>Carte en cours de création</h1>
+      <% else  %>
+        <%= render "/cards/card" %>
+      <% end %>
+    </div>
+
   </div>
-
-
 </div>

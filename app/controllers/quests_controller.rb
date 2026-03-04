@@ -1,10 +1,9 @@
 class QuestsController < ApplicationController
   def show
     @quest = Quest.find(params[:id])
-    @chat = @quest.chat
     @message = Message.new
-    # @chat = @quest.chats.where(user: current_user)
-    # @card = @chat.cards.last # ??
+    @quest.chat
+    @card = @quest.cards.last # ??
   end
 
   def index

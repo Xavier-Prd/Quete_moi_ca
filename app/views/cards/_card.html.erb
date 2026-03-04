@@ -2,17 +2,16 @@
 
   <div class="quest-top">
     <%= image_tag "icone_quete_mage.png", class: "quest-class-icon" %>
-    <span class="quest-class">Quête de Mage</span>
+    <span class="quest-class"><%= @card.category %></span>
   </div>
 
   <div class="quest-body">
     <h2 class="quest-title">
-      La Ballade du Chariot Brisé
+      <%= @card.title %>
     </h2>
 
     <p class="quest-description">
-      Chante pour attirer un sage de la mécanique capable de le ramener à la vie.
-      Cette quête requiert patience, courage et un soupçon de magie ancienne.
+      <%= @card.content %>
     </p>
   </div>
 
