@@ -1,21 +1,23 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path("banner.png") %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.4)), url(<%= asset_path("banner.png") %>);">
   <div class="container text-center">
-    <h1>Transforme tes demandes <br> en quêtes épiques !</h1>
-    <br>
-    <% if user_signed_in? %>
-      <%= simple_form_for :quest, url: "/quests", method: :post, html: { class: "d-flex justify-content-center" } do %>
-        <%= button_tag type: "submit", class: "ui-btn primary" do %>
-          <span class="key">C</span>
-          <span class="text">Créer une quête</span>
-        <% end %>
-      <% end %>
-    <% else %>
-      <div class="d-flex justify-content-center">
-        <%= link_to new_user_session_path, class: "ui-btn primary text-decoration-none" do %>
-          <span class="key">C</span>
-          <span class="text">Connexion</span>
+      <div class="col-md-6 card">
+      <h1>Transforme tes demandes <br> en quêtes épiques !</h1>
+        <% if user_signed_in? %>
+          <%= simple_form_for :quest, url: "/quests", method: :post, html: { class: "d-flex justify-content-center" } do %>
+            <%= button_tag type: "submit", class: "ui-btn secondary" do %>
+              <span class="key">C</span>
+              <span class="text">Créer une quête</span>
+            <% end %>
+          <% end %>
+        <% else %>
+          <div class="d-flex justify-content-center">
+            <%= link_to new_user_session_path, class: "ui-btn primary text-decoration-none" do %>
+              <span class="key">C</span>
+              <span class="text">Connexion</span>
+            <% end %>
+          </div>
         <% end %>
       </div>
-    <% end %>
+
   </div>
 </div>

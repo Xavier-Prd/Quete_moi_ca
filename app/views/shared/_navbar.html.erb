@@ -13,7 +13,13 @@
       <ul class="navbar-nav flex-grow-1 justify-content-between">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Toutes les quêtes", "/quests", class: "nav-link" %>
+            <%= link_to "/quests" do %>
+              <div class="btn-quetes-border">
+                <span class="btn-quetes-inner">
+                  Grimoire des quêtes
+                </span>
+              </div>
+            <% end %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
