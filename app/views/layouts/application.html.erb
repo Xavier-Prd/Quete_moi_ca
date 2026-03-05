@@ -32,5 +32,18 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
+    <script>
+    function scrollToBottom() {
+      const container = document.getElementById("chat-messages");
+      if (container) {
+        container.scrollTop = container.scrollHeight;
+      }
+    }
+
+  document.addEventListener("turbo:load", scrollToBottom);
+  document.addEventListener("turbo:render", scrollToBottom);
+</script>
+
   </body>
 </html>
