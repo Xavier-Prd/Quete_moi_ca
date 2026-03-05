@@ -12,11 +12,18 @@
 
       <ul class="navbar-nav flex-grow-1 justify-content-between">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <li class="nav-item flex-grow-1 text-center">
+            <%= link_to quests_path do %>
+              <div class="btn-quetes-border">
+                <span class="btn-quetes-inner">
+                  Accueil
+                </span>
+              </div>
+            <% end %>
             <%= link_to explore_quests_path do %>
               <div class="btn-quetes-border">
                 <span class="btn-quetes-inner">
-                  Grimoire des quêtes
+                  Mon grimoire de quêtes
                 </span>
               </div>
             <% end %>

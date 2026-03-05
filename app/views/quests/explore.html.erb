@@ -1,17 +1,35 @@
-<%= render "/shared/banner" %>
 
 <div class="container py-5">
-  <h2>Toutes les quêtes créées</h2>
-  <br>
-  <% @cards = Card.all %>
-  <div class="row">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Mon grimoire de quêtes</h1>
 
-    <% @cards.reverse.each do |card| %>
-      <%= link_to quest_path(card.quest), class:"col-md-4 mb-3 text-decoration-none" do %>
-          <%= render "cards/card", card: card %>
+    <%= simple_form_for :quest, url: "/quests", method: :post do %>
+      <%= button_tag type: "submit", class: "ui-btn secondary" do %>
+        <span class="key">C</span>
+        <span class="text">Créer une quête</span>
       <% end %>
     <% end %>
+  </div>
+  <br>
+  <div class="row">
+    <% if current_user %>
+      <% @user_quests = current_user.quests %>
+      <% @user_cards = Card.where(quest_id: @user_quests.ids) %>
 
+      <% @user_cards.reverse.each do |card| %>
+        <%= link_to quest_path(card.quest), class:"col-md-4 mb-5 text-decoration-none" do %>
+            <%= render "cards/card", card: card %>
+        <% end %>
+      <% end %>
+
+    <% else %>
+        <% @cards.reverse.each do |card| %>
+          <%= link_to quest_path(card.quest), class:"col-md-4 mb-5 text-decoration-none" do %>
+              <%= render "cards/card", card: card %>
+          <% end %>
+        <% end %>
+
+    <% end %>
   </div>
 
 </div>

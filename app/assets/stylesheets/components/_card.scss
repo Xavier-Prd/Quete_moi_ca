@@ -3,7 +3,7 @@
   background: #f3e2c7;
   border: 4px solid #d2b48c;
   border-radius: 25px;
-  padding: 32px 32px 48px 32px;
+  padding: 40px 24px 48px 24px;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -14,6 +14,8 @@
   font-family: 'Cormorant Garamond', serif;
   transition: transform 0.25s ease;
   position: relative;
+  margin-bottom: 32px;
+  text-align: center;
 }
 
 .quest-card:hover {
@@ -24,19 +26,37 @@
 
 .quest-top {
   display: flex;
+  gap: 8px;
   align-items: center;
-  gap: 16px; /* un peu plus d’air */
-  font-size: 18px;
+  padding: 8px 20px 8px 8px;
+  border-radius: 999px;
+  font-size: 22px;
+  background: #e8d8c2;
+  border: 1px solid #d2b48c;
   color: #6b3f2b;
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+.ques-class {
+  font-size: 20px;
+}
 .quest-class-icon {
-  width: 80px;
+  width: 36px;
   height: auto;
+  border-radius: 50%;
+  // background-color: #f3e2c7;
 }
 
 /* TITRE */
-
+.quest-body {
+  height: 360px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
 .quest-title {
   font-family: 'Cinzel', serif;
   font-size: 24px;
@@ -48,7 +68,8 @@
 /* DESCRIPTION */
 
 .quest-description {
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 500;
   line-height: 1.6;
   font-style: italic;
   color: #5a3d2b;
@@ -56,6 +77,8 @@
   line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  margin: 0;
+  max-height: 194px;
 }
 
 /* LOCATION */
@@ -65,7 +88,7 @@
   align-items: center;
   gap: 10px;
   font-style: italic;
-  font-size: 16px;
+  font-size: 20px;
   color: #6b3f2b;
 }
 
@@ -79,7 +102,7 @@
 .quest-divider {
   height: 1px;
   background: linear-gradient(to right, transparent, #c59b5c, transparent);
-  margin: 20px 0;
+  margin: 16px 0;
 }
 
 /* REWARD */
@@ -104,7 +127,7 @@
   left: 50%;
   transform: translateX(-50%);
   text-decoration: none;
-  color: #5a2d2d; 
+  color: #5a2d2d;
 }
 
 .coin-icon {

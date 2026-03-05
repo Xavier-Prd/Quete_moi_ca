@@ -5,22 +5,26 @@
     <span class="quest-class"><%= card.category %></span>
   </div>
 
-  <div class="quest-body">
     <h2 class="quest-title">
       <%= card.title %>
     </h2>
 
+  <div class="quest-body f-flex justify-content-between">
+
+    <div class="quest-divider"></div>
+
     <p class="quest-description">
       <%= card.content %>
     </p>
+
+    <div class="quest-divider"></div>
+
   </div>
 
   <div class="quest-location">
     <%= image_tag "icon_localisation.png", class: "location-icon" %>
     <span>Forêt d’Eldoria</span>
   </div>
-
-  <div class="quest-divider"></div>
 
   <div class="quest-footer">
     <div class="quest-reward">
