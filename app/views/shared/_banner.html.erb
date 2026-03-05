@@ -2,20 +2,20 @@
   <div class="container text-center">
     <h1>Turn any request <br> into an RPG quest!</h1>
     <br>
-   <% if user_signed_in? %>
-    <%= simple_form_for :quest, url: "/quests", method: :post, html: { class: "d-flex justify-content-center" } do %>
-      <%= button_tag type: "submit", class: "ui-btn primary" do %>
-        <span class="key">Q</span>
-        <span class="text">New quest</span>
+    <% if user_signed_in? %>
+      <%= simple_form_for :quest, url: "/quests", method: :post, html: { class: "d-flex justify-content-center" } do %>
+        <%= button_tag type: "submit", class: "ui-btn primary" do %>
+          <span class="key">Q</span>
+          <span class="text">New quest</span>
+        <% end %>
       <% end %>
+    <% else %>
+      <div class="d-flex justify-content-center">
+        <%= link_to new_user_session_path, class: "ui-btn primary text-decoration-none" do %>
+          <span class="key">C</span>
+          <span class="text">Connexion</span>
+        <% end %>
+      </div>
     <% end %>
-  <% else %>
-    <div class="d-flex justify-content-center">
-      <%= link_to new_user_session_path, class: "ui-btn primary text-decoration-none" do %>
-        <span class="key">C</span>
-        <span class="text">Connexion</span>
-      <% end %>
-    </div>
-  <% end %>
   </div>
 </div>
