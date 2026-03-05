@@ -1,4 +1,5 @@
 class QuestsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def show
     @quest = Quest.find(params[:id])
     @message = Message.new
