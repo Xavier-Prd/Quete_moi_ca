@@ -21,6 +21,7 @@ class QuestsController < ApplicationController
     @quest = Quest.new
     @quest.user = current_user
     Chat.create!(quest: @quest)
+    @quest.chat.messages.create!(role: "assistant", content: "Bonjour villageois, de quoi as-tu besoin aujourd'hui ?")
     if @quest.save
       redirect_to @quest
     else
