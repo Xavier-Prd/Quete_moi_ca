@@ -81,3 +81,81 @@
   transform: translateY(1px);
   box-shadow: 0 6px 14px rgba(0,0,0,.22);
 }
+
+
+/* BTN Navbar */
+.btn-quetes {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 28px;
+
+  /* Forme hexagonale / bannière avec clip-path */
+  clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 50%, calc(100% - 18px) 100%, 18px 100%, 0% 50%);
+
+  background-color: #f0e4d4;
+  border: none;
+  cursor: pointer;
+
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #7a5c45;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+
+  position: relative;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  /* Bordure simulée via box-shadow intérieur ou outline contourné */
+}
+
+/* Bordure via pseudo-élément légèrement plus grand derrière */
+.btn-quetes-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.btn-quetes-border {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 50%, calc(100% - 18px) 100%, 18px 100%, 0% 50%);
+  background-color: #c9a882;
+  padding: 1.5px;
+}
+
+.btn-quetes-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 24px;
+  clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 50%, calc(100% - 18px) 100%, 18px 100%, 0% 50%);
+  background-color: #f0e4d4;
+  cursor: pointer;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #7a5c45;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  border: none;
+  outline: none;
+}
+
+.btn-quetes-inner:hover {
+  background-color: #e8d8c2;
+}
+
+.btn-quetes-inner:active {
+  background-color: #deccb0;
+}
+
+/* Icône plume SVG inline */
+.icon-plume {
+  width: 16px;
+  height: 16px;
+  opacity: 0.85;
+  flex-shrink: 0;
+}
