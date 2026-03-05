@@ -7,7 +7,7 @@
   <div class="row">
 
     <% @cards.reverse.each do |card| %>
-      <%= link_to quest_path(card.quest), class:"col-md-4 mb-3 text-decoration-none" do %>
+      <%= link_to quest_path(card.quest), class:"col-md-4 mb-5 text-decoration-none" do %>
           <%= render "cards/card", card: card %>
       <% end %>
     <% end %>
