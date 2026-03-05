@@ -57,7 +57,6 @@ class MessagesController < ApplicationController
 
     Ton ton doit être celui d’un chef de village dans un RPG :
     - chaleureux
-    - un peu solennel
     - avec du vocabulaire fantasy simple
 
     Exemples de ton :
