@@ -23,7 +23,9 @@ class MessagesController < ApplicationController
             - "Mage" → réflexion, apprentissage, stratégie, organisation.
             - "Guerrier" → action, effort physique, discipline, confrontation.
             - "Assassin" → ruse, optimisation, créativité, débrouillardise.
+            - "Druide" → jadinerie, plante, calme, débrouillardise, controle.
 
+    Ne renvoie aucune autre catégorie que Mage, Guerrier ou Assassin ou Druide
     Ne renvoie aucun texte en dehors du JSON.
     Ne rajoute aucune explication.
   PROMPT

@@ -6,11 +6,13 @@
   <br>
   <% @cards = Card.all %>
   <div class="row">
-    <% @cards.each do |card| %>
-      <div class="col-md-4 mb-3">
-        <%= render "cards/card", card: card %>
-      </div>
+
+    <% @cards.reverse.each do |card| %>
+      <%= link_to quest_path(card.quest), class:"col-md-4 mb-3 text-decoration-none" do %>
+          <%= render "cards/card", card: card %>
+      <% end %>
     <% end %>
+
   </div>
 
 </div>
