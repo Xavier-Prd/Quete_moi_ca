@@ -1,28 +1,20 @@
+
 <%# Rendu de banner (_navbar.html.erb) %>
 <%= render "/shared/banner" %>
 
 <div class="container py-5">
-  <h2>Grimoire des quêtes</h2>
+  <h2>Découvrez les quêtes forgées par d'autres aventuriers :</h2>
   <br>
+  <br>
+  <% @cards = Card.all %>
   <div class="row">
-    <% if current_user %>
-      <% @user_quests = current_user.quests %>
-      <% @user_cards = Card.where(quest_id: @user_quests.ids) %>
 
-      <% @user_cards.reverse.each do |card| %>
-        <%= link_to quest_path(card.quest), class:"col-md-4 mb-5 text-decoration-none" do %>
-            <%= render "cards/card", card: card %>
-        <% end %>
+    <% @cards.reverse.each do |card| %>
+      <%= link_to quest_path(card.quest), class:"col-md-4 mb-5 text-decoration-none" do %>
+          <%= render "cards/card", card: card %>
       <% end %>
-
-    <% else %>
-        <% @cards.reverse.each do |card| %>
-          <%= link_to quest_path(card.quest), class:"col-md-4 mb-5 text-decoration-none" do %>
-              <%= render "cards/card", card: card %>
-          <% end %>
-        <% end %>
-
     <% end %>
+
   </div>
 
 </div>
