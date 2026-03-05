@@ -1,12 +1,12 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path("banner.png") %>);">
   <div class="container text-center">
-    <h1>Turn any request <br> into an RPG quest!</h1>
+    <h1>Transforme chaque demande <br> en quête RPG!</h1>
     <br>
     <%# if user_signed_in? %>
       <%= simple_form_for :quest, url: "/quests", method: :post, html: { class: "d-flex justify-content-center" } do %>
         <%= button_tag type: "submit", class: "ui-btn primary" do %>
           <span class="key">Q</span>
-          <span class="text">New quest</span>
+          <span class="text">Nouvelle quête</span>
         <% end %>
       <% end %>
     <%# else %>
