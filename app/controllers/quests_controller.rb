@@ -12,6 +12,11 @@ class QuestsController < ApplicationController
     @cards = Card.all
   end
 
+  def explore
+    @quests = Quest.all
+    @cards = Card.all
+  end
+
   def create
     @quest = Quest.new
     @quest.user = current_user
