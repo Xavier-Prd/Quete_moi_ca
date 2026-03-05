@@ -3,7 +3,7 @@
       <div class="col-md-6 card">
       <h1>Transforme tes demandes <br> en quêtes épiques !</h1>
         <% if user_signed_in? %>
-          <%= simple_form_for :quest, url: "/quests", method: :post, html: { class: "d-flex justify-content-center" } do %>
+          <%= simple_form_for :quest, url: "/quests", method: :post, html: { class: "d-flex justify-content-center banner-btn" } do %>
             <%= button_tag type: "submit", class: "ui-btn secondary" do %>
               <span class="key">C</span>
               <span class="text">Créer une quête</span>
@@ -11,7 +11,7 @@
           <% end %>
         <% else %>
           <div class="d-flex justify-content-center">
-            <%= link_to new_user_session_path, class: "ui-btn primary text-decoration-none" do %>
+            <%= link_to new_user_session_path, class: "ui-btn secondary text-decoration-none banner-btn" do %>
               <span class="key">C</span>
               <span class="text">Connexion</span>
             <% end %>
