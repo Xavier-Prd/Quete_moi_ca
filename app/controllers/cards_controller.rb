@@ -8,5 +8,7 @@ class CardsController < ApplicationController
     @card = Card.find(params[:id])
     Card.where(chat_id: @card.chat_id).update_all(status: "inactive")
     @card.update(status: "active")
+
+    redirect_to "/quests"
   end
 end
