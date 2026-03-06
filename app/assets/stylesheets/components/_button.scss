@@ -144,6 +144,13 @@
   outline: none;
 }
 
+// AJOUT D'UNE COLOR DIFF QUAND BOUTON ACTIVE //
+.active-btn-quetes-inner {
+  background-color: #6b2d3d;
+  color: #fff3df;
+}
+//
+
 .btn-quetes-inner:hover {
   background-color: #e8d8c2;
 }

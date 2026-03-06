@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       get :explore
     end
     resources :messages, only: [:create]
+    resources :cards, only: [:show]
   end
 
 end
