@@ -87,6 +87,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     database: quete_moi_ca_production
     username: quete_moi_ca
     password: <%= ENV["QUETE_MOI_CA_DATABASE_PASSWORD"] %>
