@@ -7,7 +7,7 @@
       <% else %>
         <%= turbo_frame_tag "card_frame" do %>
           <%= render "/cards/card", card: @card %>
-          <%= link_to "Valider cette quête", activate_card_path(@card), data: { turbo_method: :patch }, class: "btn btn-primary" %>
+          <%= link_to "Valider cette quête", activate_card_path(@card), data: { turbo_method: :patch }, class: "ui-btn secondary small" %>
         <% end %>
 
           <% if @card.quest.user == current_user %>

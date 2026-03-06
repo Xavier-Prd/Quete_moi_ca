@@ -17,7 +17,24 @@
   position: relative;
 
   box-shadow: 0 10px 22px rgba(0,0,0,.18);
-  font-family: 'Cormorant Garamond', serif;
+}
+.ui-btn.small {
+  gap: 10px;
+  padding: 4px 12px 4px 4px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  height: inherit;
+  .key {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 16px;
+  }
+}
+.ui-btn.small::before {
+  display: none;
+  border: 0px;
 }
 
 /* Inner outline */
@@ -167,4 +184,15 @@
   height: 16px;
   opacity: 0.85;
   flex-shrink: 0;
+}
+
+
+.card-show-wrapper .ui-btn.small {
+  display: none;
+}
+.show-right .ui-btn {
+  text-decoration: none;
+  gap: 10px;
+  padding: 8px 12px;
+  width: fit-content;
 }
