@@ -1,5 +1,6 @@
 class QuestsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
+  before_action :check_owner, only: :show
   def show
     @quest = Quest.find(params[:id])
     @message = Message.new
@@ -27,5 +28,12 @@ class QuestsController < ApplicationController
     else
       render "/quests", status: :unprocessable_entity
     end
+  end
+
+  private
+
+  def check_owner
+    @quest = Quest.find(params[:id])
+    redirect_to quests_path, alert: "Accès refusé" unless current_user.id == @quest.user.id
   end
 end
