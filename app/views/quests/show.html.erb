@@ -31,7 +31,7 @@
 
             <% else %>
 
-              <div class="message-row ai-message align-items-center">
+              <div class="message-row ai-message">
 
                 <%= image_tag "avatar_ia.png", class: "chat-avatar" %>
 
@@ -47,7 +47,9 @@
                 </div>
 
                 <% if message.card_id %>
-                  <%= link_to "Card", card_path(message.card), data: { turbo_frame: "card_frame" } %>
+                  <%= link_to card_path(message.card), data: { turbo_frame: "card_frame" } do %>
+                    <%= image_tag "see_quest.png", style: "height:80px; width:80px;" %>
+                  <% end %>
                 <% end %>
 
               </div>
@@ -86,13 +88,13 @@
     <!-- COLONNE DROITE : CARD -->
     <div class="show-right">
 
-      <%= turbo_frame_tag "card_frame" do %>
-        <% if @card.nil? %>
-          <%= image_tag "creation_encours.png",
-            class: "creationencours img-fluid" %>
-        <% else %>
+      <% if @card.nil? %>
+        <%= image_tag "creation_encours.png",
+          class: "creationencours img-fluid" %>
+      <% else %>
+        <%= turbo_frame_tag "card_frame" do %>
           <%= render "/cards/card", card: @card %>
-          <%= link_to "Valider cette quête", card_path(), class:"primary ui-btn" %>
+          <%= link_to "Valider cette quête", activate_card_path(@card), data: { turbo_method: :patch }, class: "btn btn-primary" %>
         <% end %>
       <% end %>
     </div>

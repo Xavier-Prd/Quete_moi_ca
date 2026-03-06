@@ -21,4 +21,9 @@ Rails.application.routes.draw do
   end
   resources :cards, only: [:show]
 
+  resources :cards do
+    member do
+      patch :activate
+    end
+  end
 end
