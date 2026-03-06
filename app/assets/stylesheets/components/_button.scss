@@ -131,12 +131,12 @@
   gap: 8px;
   padding: 6px 24px;
   clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 50%, calc(100% - 18px) 100%, 18px 100%, 0% 50%);
-  background-color: #f0e4d4;
+  background-color: #6b2d3d;
+  color: #fff3df;
   cursor: pointer;
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 15px;
   font-weight: 700;
-  color: #7a5c45;
   letter-spacing: 0.04em;
   white-space: nowrap;
   transition: background-color 0.2s ease;
@@ -144,12 +144,21 @@
   outline: none;
 }
 
+// AJOUT D'UNE COLOR DIFF QUAND BOUTON ACTIVE //
+.active-btn-quetes-inner {
+  background-color: #f0e4d4;
+  color: #7a5c45;
+}
+//
+
 .btn-quetes-inner:hover {
   background-color: #e8d8c2;
+  color: #7a5c45;
 }
 
 .btn-quetes-inner:active {
   background-color: #deccb0;
+  color: #7a5c45;
 }
 
 /* Icône plume SVG inline */

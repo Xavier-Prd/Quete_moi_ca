@@ -13,21 +13,24 @@
       <ul class="navbar-nav flex-grow-1 justify-content-between">
         <% if user_signed_in? %>
           <li class="nav-item flex-grow-1 text-center">
-            <%= link_to quests_path do %>
-              <div class="btn-quetes-border">
-                <span class="btn-quetes-inner">
-                  Accueil
-                </span>
-              </div>
-            <% end %>
-            <%= link_to explore_quests_path do %>
-              <div class="btn-quetes-border">
-                <span class="btn-quetes-inner">
-                  Mon grimoire de quêtes
-                </span>
-              </div>
-            <% end %>
-          </li>
+
+          <%= link_to quests_path do %>
+            <div class="btn-quetes-border">
+              <span class="btn-quetes-inner <%= 'active-btn-quetes-inner' if controller_name == 'quests' && action_name != 'explore' %>">
+                Accueil
+              </span>
+            </div>
+          <% end %>
+
+          <%= link_to explore_quests_path do %>
+            <div class="btn-quetes-border">
+              <span class="btn-quetes-inner <%= 'active-btn-quetes-inner' if controller_name == 'quests' && action_name == 'explore' %>">
+                Mon grimoire de quêtes
+              </span>
+            </div>
+          <% end %>
+
+        </li>
           <li class="nav-item dropdown">
             <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
