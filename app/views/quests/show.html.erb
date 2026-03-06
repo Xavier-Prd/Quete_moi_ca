@@ -62,19 +62,15 @@
 
             <div class="input-wrapper">
 
-              <%= f.input :content,
-                    label: false,
-                    wrapper: false,
-                    input_html: {
-                      class: "chat-input-field",
-                      placeholder: "Formule ta requête..."
-                    } %>
-
             <%= f.text_field :content,
               class: "chat-input-field",
               placeholder: "Formule ta requête..." %>
 
-            </div>
+            <%= f.button :submit,
+                  "Envoyer",
+                  class: "chat-send-btn" %>
+
+          </div>
 
           <% end %>
 
