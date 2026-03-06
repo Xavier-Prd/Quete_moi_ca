@@ -1,96 +1,100 @@
 <div class="show-container">
+    <!-- COLONNE GAUCHE : CHAT -->
+    <div class="show-left">
 
-  <!-- COLONNE GAUCHE : CHAT -->
-  <div class="show-left">
+      <div class="chat-wrapper">
 
-    <div class="chat-wrapper">
+        <!-- MESSAGES -->
+        <div class="chat-messages" id="chat-messages">
 
-      <!-- MESSAGES -->
-      <div class="chat-messages" id="chat-messages">
+          <% @quest.chat.messages.each do |message| %>
 
-        <% @quest.chat.messages.each do |message| %>
+            <% if message.role == "user" %>
 
-          <% if message.role == "user" %>
+              <div class="message-row user-message">
 
-            <div class="message-row user-message">
+                <div class="message-content">
 
-              <div class="message-content">
+                  <div class="message-role user-role">
+                    <%= current_user.name %>
+                  </div>
 
-                <div class="message-role user-role">
-                  <%= current_user.name %>
+                  <div class="message-bubble user-bubble">
+                    <%= message.content %>
+                  </div>
+
                 </div>
 
-                <div class="message-bubble user-bubble">
-                  <%= message.content %>
+                <%= image_tag "avatar_user.png", class: "chat-avatar" %>
+
+              </div>
+
+            <% else %>
+
+              <div class="message-row ai-message">
+
+                <%= image_tag "avatar_ia.png", class: "chat-avatar" %>
+
+                <div class="message-content">
+
+                  <div class="message-role ai-role">
+                    Chef du village
+                  </div>
+
+                  <div class="message-bubble ai-bubble">
+                    <%= message.content %>
+                  </div>
+
                 </div>
 
               </div>
 
-              <%= image_tag "avatar_user.png", class: "chat-avatar" %>
-
-            </div>
-
-          <% else %>
-
-            <div class="message-row ai-message">
-
-              <%= image_tag "avatar_ia.png", class: "chat-avatar" %>
-
-              <div class="message-content">
-
-                <div class="message-role ai-role">
-                  Chef du village
-                </div>
-
-                <div class="message-bubble ai-bubble">
-                  <%= message.content %>
-                </div>
-
-              </div>
-
-            </div>
+            <% end %>
 
           <% end %>
 
-        <% end %>
+        </div>
 
-      </div>
+        <!-- INPUT -->
+        <div class="chat-input-area">
 
-      <!-- INPUT -->
-      <div class="chat-input-area">
+          <%= simple_form_for [@quest, @message], html: { class: "chat-form" } do |f| %>
 
-        <%= simple_form_for [@quest, @message], html: { class: "chat-form" } do |f| %>
+            <div class="input-wrapper">
 
-          <div class="input-wrapper">
+              <%= f.input :content,
+                    label: false,
+                    wrapper: false,
+                    input_html: {
+                      class: "chat-input-field",
+                      placeholder: "Formule ta requête..."
+                    } %>
 
             <%= f.text_field :content,
               class: "chat-input-field",
               placeholder: "Formule ta requête..." %>
 
-            <%= f.button :submit,
-                  "Envoyer",
-                  class: "chat-send-btn" %>
+            </div>
 
-          </div>
+          <% end %>
 
-        <% end %>
+        </div>
 
       </div>
 
     </div>
 
-  </div>
+    <!-- COLONNE DROITE : CARD -->
+    <div class="show-right">
 
-  <!-- COLONNE DROITE : CARD -->
-  <div class="show-right">
+      <% if @card.nil? %>
+        <%= image_tag "creation_encours.png",
+              class: "creationencours img-fluid" %>
+      <% else %>
+        <%= render "/cards/card", card: @card %>
+      <% end %>
 
-    <% if @card.nil? %>
-      <%= image_tag "creation_encours.png",
-            class: "creationencours img-fluid" %>
-    <% else %>
-      <%= render "/cards/card", card: @card %>
-    <% end %>
+    </div>
 
-  </div>
 
 </div>
