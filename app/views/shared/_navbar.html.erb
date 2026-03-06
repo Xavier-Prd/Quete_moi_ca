@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "/quests", class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
@@ -9,30 +9,41 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
       <ul class="navbar-nav flex-grow-1 justify-content-between">
         <% if user_signed_in? %>
           <li class="nav-item flex-grow-1 text-center">
+            <%= link_to quests_path do %>
+              <div class="btn-quetes-border">
+                <span class="btn-quetes-inner <%= 'active-btn-quetes-inner' if controller_name == 'quests' && action_name != 'explore' %>">
+                  Accueil
+                </span>
+              </div>
+            <% end %>
 
-          <%= link_to quests_path do %>
-            <div class="btn-quetes-border">
-              <span class="btn-quetes-inner <%= 'active-btn-quetes-inner' if controller_name == 'quests' && action_name != 'explore' %>">
-                Accueil
-              </span>
-            </div>
-          <% end %>
+            <%= link_to explore_quests_path do %>
+              <div class="btn-quetes-border">
+                <span class="btn-quetes-inner <%= 'active-btn-quetes-inner' if controller_name == 'quests' && action_name == 'explore' %>">
+                  Mon grimoire de quêtes
+                </span>
+              </div>
+            <% end %>
+          </li>
 
-          <%= link_to explore_quests_path do %>
-            <div class="btn-quetes-border">
-              <span class="btn-quetes-inner <%= 'active-btn-quetes-inner' if controller_name == 'quests' && action_name == 'explore' %>">
-                Mon grimoire de quêtes
-              </span>
-            </div>
-          <% end %>
+          <li class="nav-item dropdown d-flex align-items-center gap-5">
+            <%= simple_form_for :quest, url: "/quests", method: :post do %>
+              <%= button_tag type: "submit", class: "ui-btn navbar" do %>
+                <span class="key">C</span>
+                <span class="text">Créer une quête</span>
+              <% end %>
+            <% end %>
 
+<<<<<<< HEAD
         </li>
           <li class="nav-item dropdown">
             <%= image_tag "avatar_user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+=======
+            <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+>>>>>>> b1e0690df6a5f898ccd5399e3f71906081b95765
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Déconnexion", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
