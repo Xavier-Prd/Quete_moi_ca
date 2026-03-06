@@ -31,11 +31,11 @@
 
             <% else %>
 
-              <div class="message-row ai-message">
+              <div class="message-row ai-message align-items-center">
 
                 <%= image_tag "avatar_ia.png", class: "chat-avatar" %>
 
-                <div class="message-content">
+                <div class="message-content me-3">
 
                   <div class="message-role ai-role">
                     Chef du village
@@ -44,8 +44,11 @@
                   <div class="message-bubble ai-bubble">
                     <%= message.content %>
                   </div>
-                  <%= link_to @card.id, card_path(@card), data: { turbo_frame: "card_frame" } %>
                 </div>
+
+                <% if message.card_id %>
+                  <%= link_to "Card", card_path(message.card), data: { turbo_frame: "card_frame" } %>
+                <% end %>
 
               </div>
 
@@ -83,13 +86,15 @@
     <!-- COLONNE DROITE : CARD -->
     <div class="show-right">
 
-      <% if @card.nil? %>
-        <%= image_tag "creation_encours.png",
-              class: "creationencours img-fluid" %>
-      <% else %>
-        <%= render "/cards/card", card: @card %>
+      <%= turbo_frame_tag "card_frame" do %>
+        <% if @card.nil? %>
+          <%= image_tag "creation_encours.png",
+            class: "creationencours img-fluid" %>
+        <% else %>
+          <%= render "/cards/card", card: @card %>
+          <%= link_to "Valider cette quête", card_path(), class:"primary ui-btn" %>
+        <% end %>
       <% end %>
-
     </div>
 
 
