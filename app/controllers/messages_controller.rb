@@ -88,7 +88,7 @@ class MessagesController < ApplicationController
     - Aucun texte en dehors du JSON.
     - Ne génère jamais la quête.
     - Ton rôle est uniquement de vérifier que la demande est compréhensible.
-    PROMPT
+  PROMPT
 
   def create
     @message = Message.new(message_params)
@@ -112,6 +112,7 @@ class MessagesController < ApplicationController
     response = JSON.parse(response_json)
     @card = Card.create!(title: response["title"], content: response["content"], category: response["category"],
                          chat: @quest.chat, quest: @quest)
+    @message.update(card: @card)
   end
 
   private

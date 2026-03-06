@@ -46,7 +46,9 @@
                   <%= message.content %>
                 </div>
               </div>
-              <p><%= %></p>
+
+              <%= link_to @card.id, card_path(@card), data: { turbo_frame: "card_frame" } %>
+
 
             </div>
 
