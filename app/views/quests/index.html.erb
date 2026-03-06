@@ -10,8 +10,10 @@
   <div class="row">
 
     <% @cards.reverse.each do |card| %>
-      <%= link_to quest_card_path(card.quest, card), class:"col-md-4 mb-5 text-decoration-none" do %>
-          <%= render "cards/card", card: card %>
+      <% if card.status == "active" %>
+        <%= link_to card_path(card), class:"col-md-4 mb-5 text-decoration-none" do %>
+            <%= render "cards/card", card: card %>
+        <% end %>
       <% end %>
     <% end %>
 

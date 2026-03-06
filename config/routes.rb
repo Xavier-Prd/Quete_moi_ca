@@ -18,7 +18,12 @@ Rails.application.routes.draw do
       get :explore
     end
     resources :messages, only: [:create]
-    resources :cards, only: [:show]
   end
+  resources :cards, only: [:show]
 
+  resources :cards do
+    member do
+      patch :activate
+    end
+  end
 end

@@ -121,10 +121,11 @@
 ================================= */
 
 .chat-avatar {
-  width: 72px;
-  height: 72px;
+  width: 56px;
+  height: 56px;
   object-fit: contain;
   flex-shrink: 0;
+  margin: 8px;
 }
 
 /* ===============================

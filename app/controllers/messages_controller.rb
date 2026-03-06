@@ -118,7 +118,7 @@ class MessagesController < ApplicationController
       build_conversation_history
       response_json = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).ask(@message.content).content
       response = JSON.parse(response_json)
-      Message.create!(content: response["answer"], role: "assistant", chat: @quest.chat)
+      @ai_message = Message.create!(content: response["answer"], role: "assistant", chat: @quest.chat)
       create_card if response["completed"]
       redirect_to @quest
     else
@@ -131,6 +131,7 @@ class MessagesController < ApplicationController
     response = JSON.parse(response_json)
     @card = Card.create!(title: response["title"], content: response["content"], category: response["category"],
                          chat: @quest.chat, quest: @quest)
+    @ai_message.update(card: @card)
   end
 
   private

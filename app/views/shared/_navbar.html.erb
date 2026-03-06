@@ -31,13 +31,15 @@
 
           <li class="nav-item dropdown d-flex align-items-center gap-5">
             <%= simple_form_for :quest, url: "/quests", method: :post do %>
-              <%= button_tag type: "submit", class: "ui-btn navbar" do %>
+              <%= button_tag type: "submit", class: "ui-btn secondary small me-3" do %>
                 <span class="key">C</span>
                 <span class="text">Créer une quête</span>
               <% end %>
             <% end %>
 
-            <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "avatar_user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Déconnexion", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
