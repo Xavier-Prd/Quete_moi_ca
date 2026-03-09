@@ -7,26 +7,18 @@
   height: calc(100vh - 70px);
 }
 
-.show-left,
-.show-right {
-  width: 50%;
-  height: 100%;
-}
-
 /* ===============================
    COLONNE GAUCHE
 ================================= */
 
 .show-left {
   background-color: #f3e8d8;
-  padding: 40px;
-  display: flex;
 }
 
 .chat-wrapper {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  height: 100%;
 }
 
 /* ===============================
@@ -39,6 +31,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+  padding-bottom: 16px;
 }
 
 .message-row {
@@ -133,7 +126,7 @@
 ================================= */
 
 .chat-input-area {
-  margin-top: 30px;
+  margin-top: 16px;
 }
 
 .chat-form {
@@ -161,7 +154,7 @@
   padding: 0 28px;
   background: #E9C083;
   border: none;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -179,11 +172,6 @@
 
 .show-right {
   background-color: #c9a88e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px;
-  overflow-y: auto;
 }
 
 .creationencours {

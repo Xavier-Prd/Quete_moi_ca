@@ -1,6 +1,7 @@
-<div class="show-container">
+<div class="container-fluid" style="height: calc(100vh - 66px); overflow-hidden;">
+  <div class="row show-quest g-4" style="height: 100%;">
     <!-- COLONNE GAUCHE : CHAT -->
-    <div class="show-left">
+    <div class="col-lg-6 col-12 show-left h-100 pb-3">
 
       <div class="chat-wrapper">
 
@@ -86,7 +87,7 @@
     </div>
 
     <!-- COLONNE DROITE : CARD -->
-    <div class="show-right">
+    <div class="col-lg-6 col-12 show-right d-flex flex-column justify-content-center align-items-center h-100 gap-4">
 
       <% if @card.nil? %>
         <%= image_tag "creation_encours.png",
@@ -94,11 +95,15 @@
       <% else %>
         <%= turbo_frame_tag "card_frame" do %>
           <%= render "/cards/card", card: @card %>
-          <%= link_to "Valider cette quête", activate_card_path(@card), data: { turbo_method: :patch }, class: "ui-btn secondary small" %>
-
+          <p>
+            <%= link_to activate_card_path(@card), data: { turbo_method: :patch, turbo_frame: "_top" }, class: "ui-btn secondary small mt-5" do %>
+              <span class="key">V</span>
+              <span class="text">Valider cette quête</span>
+            <% end %>
+          </p>
         <% end %>
       <% end %>
     </div>
 
-
+  </div>
 </div>

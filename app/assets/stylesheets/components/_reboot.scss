@@ -1,10 +1,14 @@
 body {
   background-color: #D1AE98;
   font-family: 'Cormorant Garamond', serif;
-  height: 91.8vh !important;
-  margin-top: 66px;
+  padding-top: 66px; /* espace pour la navbar fixe */
+  min-height: 100vh;
 }
-h1, h2, h3, h4, h5, p, a {
-  font-family: 'Cormorant Garamond', serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif;
   font-weight: 700;
+}
+
+.card-show-wrapper .manual-display {
+  display: none;
 }

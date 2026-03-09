@@ -5,7 +5,8 @@ class QuestsController < ApplicationController
     @quest = Quest.find(params[:id])
     @message = Message.new
     @quest.chat
-    @card = @quest.cards.last # ??
+    @card = @quest.cards.last
+    # @card = @quest.cards.find_by(status: "active")
   end
 
   def index

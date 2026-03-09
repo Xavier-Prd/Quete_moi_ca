@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px; // ← espace pour le badge "Quête de Druide" qui dépasse en haut
+  padding-top: 16px; // ← espace pour le badge "Quête de Druide" qui dépasse en haut
 }
 
 .card-edit-btn {
@@ -21,7 +21,7 @@
   background: #d2b48c;
   border: 3px solid #b8966e;
   border-radius: 16px;
-  font-family: 'Cinzel', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 17px;
   color: #5a2d2d;
   text-align: center;
@@ -33,6 +33,8 @@
   color: #5a2d2d;
 }
 
-.card-show-wrapper .quest-card:hover, .show-right .quest-card:hover {
-  transform: none;
+@media (max-width: 650px) {
+  .show-quest {
+    flex-direction: column-reverse;
+  }
 }

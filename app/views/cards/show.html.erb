@@ -7,20 +7,28 @@
       <% else %>
         <%= turbo_frame_tag "card_frame" do %>
           <%= render "/cards/card", card: @card %>
-          <%= link_to "Valider cette quête", activate_card_path(@card), data: { turbo_method: :patch }, class: "ui-btn secondary small" %>
+          <% if @card.quest.user == current_user %>
+            <p>
+              <%= link_to activate_card_path(@card), data: { turbo_method: :patch, turbo_frame: "_top" }, class: "ui-btn secondary small manual-display mt-5" do %>
+                <span class="key">V</span>
+                <span class="text">Valider cette quête</span>
+              <% end %>
+            </p>
+          <% end %>
         <% end %>
+        <div class="d-flex gap-3 mt-4">
 
           <% if @card.quest.user == current_user %>
-            <%= link_to quest_path(@card.quest), class: "ui-btn secondary text-decoration-none mt-3" do %>
+            <%= link_to quest_path(@card.quest), class: "ui-btn secondary text-decoration-none mt-3 small" do %>
               <span class="key">M</span>
               <span class="text">Modifier la quête</span>
             <% end %>
-          <% else %>
-            <%= link_to quests_path, class: "ui-btn secondary text-decoration-none mt-3" do %>
-              <span class="key">R</span>
-              <span class="text">Retour</span>
-            <% end %>
           <% end %>
+          <%= link_to quests_path, class: "ui-btn secondary text-decoration-none mt-3 small" do %>
+            <span class="key">R</span>
+            <span class="text">Retour</span>
+          <% end %>
+        </div>
       <% end %>
 
   </div>
